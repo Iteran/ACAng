@@ -1,0 +1,5 @@
+<nav>
+    <div *ngFor="let item of items">
+        <button nbButton hero status="warning"><nb-icon *ngIf="item.icon" [icon]="item.icon"></nb-icon> {{item.text}}</button>
+    </div>
+</nav>
