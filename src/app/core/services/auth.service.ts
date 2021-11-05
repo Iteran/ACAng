@@ -22,7 +22,7 @@ export class AuthService {
     this.token = sessionStorage.getItem(this.TOKEN_KEY);
    }
    login(data : Login) : Observable<void> {
-     return this.httpclient.post<string>(this.url+'/Login',data).pipe(map(token => {sessionStorage.setItem(this.TOKEN_KEY,token);
+     return this.httpclient.post<string>(this.url+'/Login',data).pipe(map(token => {sessionStorage.setItem(this.TOKEN_KEY,JSON.stringify(token));
       this.token = token
     }));
    }

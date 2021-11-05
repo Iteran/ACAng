@@ -4,8 +4,8 @@ import { Login } from 'src/app/core/models/login';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { NbDialogService, NbToastrService } from '@nebular/theme';
-import { MustMatch } from 'src/app/shared/validators/MustMatch.validator';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private dialogservice : NbDialogService,
     private authService : AuthService,
     private formBuilder: FormBuilder,
-    private toastr : NbToastrService,
+    private toastr : ToastrService,
     private router : Router
     ) { }
 
@@ -35,9 +35,12 @@ export class LoginComponent implements OnInit {
     if(this.formgroup.valid){
 
       this.authService.login(this.formgroup.value).subscribe(()=> {this.router.navigateByUrl("/");
-      this.toastr.success("Bienvenue");
-      
-    },error => {this.toastr.danger("La connection à échouée")})
+      this.toastr.success("Bienvenue");      
+      let token : any = ''
+      token = sessionStorage.getItem("TOKEN")
+      token = JSON.parse(token)
+      console.log(token)
+    },error => {this.toastr.error("La connection à échouée")})
     }
     
   }

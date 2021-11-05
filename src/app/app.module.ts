@@ -3,6 +3,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbButtonModule, NbCardModule, NbDialogModule, NbIconModule, NbInputModule, NbLayoutModule, NbSidebarModule, NbThemeModule, NbToastrModule } from '@nebular/theme';
 
@@ -14,13 +15,22 @@ import { MenuComponent } from './shared/components/menu/menu.component';
 import { SharedModule } from './shared/shared.module';
 import { RegisterComponent } from './features/login/register/register.component';
 import {PasswordModule} from 'primeng/password';
+import { ToastrModule } from 'ngx-toastr';
+import { CustomerComponent } from './features/customer/customer.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { CustomerbindingComponent } from './features/customer/customerbinding/customerbinding.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CustomerComponent,
+    CustomerbindingComponent
     
     
   ],
@@ -45,7 +55,13 @@ import {PasswordModule} from 'primeng/password';
     NbDialogModule.forRoot(),
     PasswordModule,
     NbToastrModule.forRoot({duration :100}),
-    AppRoutingModule
+    AppRoutingModule,
+    ToastrModule.forRoot({timeOut : 2000}),
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule
+    
     
     
     

@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Liaison compte client</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="fg" (ngSubmit)="Bind()">
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Numéro de client</mat-label>
+                    <input matInput formControlName ="customerId">
+                </mat-form-field>
+            </div>
+            <button>Valider</button>
+        </form>
+    </mat-card-content>
+</mat-card>
