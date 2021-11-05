@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NbMenuItem } from '@nebular/theme';
+import { AuthService } from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ACAng';
+  items : NbMenuItem[] = [
+
+  ]
+  constructor(public authService : AuthService){
+
+  }
+  logout(){
+    this.authService.logout()
+  }
 }

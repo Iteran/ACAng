@@ -1,0 +1,23 @@
+<nb-card>
+    <nb-card-body>
+        <form [formGroup]="fg" (ngSubmit)="register()">
+        <div >
+            <p>Insérez votre Email</p>
+            <input nbInput  placeholder="Email" type="email" formControlName="email">  
+        </div>
+        <div >
+            <p>Insérez votre mot de passe</p>
+            <input nbInput type="password" placeholder="Mot de passe" formControlName="password">  
+        </div>
+        <div >
+            <p>Confirmer votre mot de passe</p>
+            <input nbInput type="password" placeholder="" formControlName="confirmPassword">  
+            
+        </div>
+        <div>
+            <button [disabled]="fg.invalid" nbButton routerLink='' > S'enregistrer</button>
+        </div>
+    </form>
+        
+    </nb-card-body>
+</nb-card>

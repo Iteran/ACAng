@@ -1,0 +1,37 @@
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+    align-items: center;
+    Button {
+        cursor: pointer;
+        size: 200px;
+        background-color: #ece7e1;
+        color: #a25547;
+        &:hover { color: #c9b9a5; }
+    }
+    .icon{
+        cursor: pointer;
+        size: 200px;
+        color:#a25547 ;
+        &:hover { color: #c9b9a5; }
+    }
+    
+    
+}
+#cardHeader {
+    background-color: #a19382;
+}
+#sidebar{
+    background-color: #c9b9a5;
+    // #a19382
+}
+nb-layout-footer.footer p
+{
+    
+    color: #a25547;
+}
+
+

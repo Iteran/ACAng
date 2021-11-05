@@ -1,29 +1,34 @@
-<nb-layout>
-     <nb-layout-header>
-      <!-- <div id="header">
-        <nb-icon icon="home" routerLink="/register"></nb-icon>
-    
-        <nb-icon *ngIf="!authService.token" icon="power" routerLink="/Login"></nb-icon>
-        <div *ngIf="authService.token">
-          <nb-icon icon="star" (click)="logout()"></nb-icon>
-          <nb-icon icon="log-out" (click)="logout()"></nb-icon>
+<nb-layout >
+     <nb-layout-header id="cardHeader" >
+      <div id="header">
+        <nb-icon class="icon" icon="home" ></nb-icon>
+        <div>
+          
+          <button *ngIf="!authService.token" id="connection" nbButton  routerLink="/Login"><nb-icon id ="login"  icon="person"  ></nb-icon>Connection</button>
         </div>
-      </div> -->
+        <div *ngIf="authService.token" >
+          
+          <nb-icon class="icon" icon="log-out" (click)="logout()"></nb-icon>
+        </div>
+      </div>
     </nb-layout-header>
     
-    <nb-sidebar>
+    <nb-sidebar id="sidebar">
       
     <app-menu></app-menu>
        
     </nb-sidebar>
     
+    
     <nb-layout-column>
       
       <router-outlet></router-outlet>
     </nb-layout-column>
+  
     
-    <nb-layout-footer>
-    <p>&copy; Technofutur - 2021</p>
+    
+    
+    <nb-layout-footer class="footer">
+      <p>Atelier Confection Ameublement</p>
     </nb-layout-footer>
-    
     </nb-layout>

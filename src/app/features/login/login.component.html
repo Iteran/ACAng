@@ -1,0 +1,22 @@
+<nb-card class="body">
+    <nb-card-body>
+        <form [formGroup]="formgroup" (ngSubmit)="login()">
+            <div>
+                <input formControlName="email" nbInput placeholder="Email" type="email">
+                
+            </div>
+            <div>
+                <input formControlName="password" nbInput placeholder="password" type="password">
+                
+            </div>
+            <div>
+                <button [disabled]="formgroup.invalid" nbButton status="success">Se connecter</button>
+            </div>
+        </form>
+        <div id ="footer">
+        <label>Pas encore de compte?</label>
+        <nav nbButton class="butt"  (click)="openDialog()">Crée un compte</nav>
+        </div>
+        
+        </nb-card-body>
+</nb-card>
