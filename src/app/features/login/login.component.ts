@@ -36,10 +36,8 @@ export class LoginComponent implements OnInit {
 
       this.authService.login(this.formgroup.value).subscribe(()=> {this.router.navigateByUrl("/");
       this.toastr.success("Bienvenue");      
-      let token : any = ''
-      token = sessionStorage.getItem("TOKEN")
-      token = JSON.parse(token)
-      console.log(token)
+      
+    
     },error => {this.toastr.error("La connection à échouée")})
     }
     

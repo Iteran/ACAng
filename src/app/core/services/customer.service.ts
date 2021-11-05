@@ -4,16 +4,22 @@ import { Injectable } from '@angular/core';
 import { NbUserComponent } from '@nebular/theme';
 import { Observable } from 'rxjs';
 import { bindingCustomer} from '../models/bindingCustomer'
+import { customer } from '../models/customer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
   private readonly url : string = "https://localhost:44350/api/Customer";
-  constructor(private httpclient : HttpClient) { }
+  token : any
+  constructor(private httpclient : HttpClient) { 
+    this.token = sessionStorage.getItem("TOKEN")
+  }
 
-  Bind(customerId : number, userId : number) : Observable<void>{
-    console.log(customerId)
-    return this.httpclient.post<any>(this.url+"/"+customerId,userId)
+  
+  GetById() : Observable<customer>{
+    
+    return this.httpclient.get<customer>(this.url+"/"+JSON.parse(this.token).customerId)
+
   }
 }

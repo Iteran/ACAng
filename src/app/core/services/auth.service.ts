@@ -12,18 +12,24 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   private readonly TOKEN_KEY = 'TOKEN';
   private readonly url : string = "https://localhost:44350/api/Auth";
-  public token!: string | null
+  public token!: any
+  
 
   public get user(): User | null{
     if(!this.token) return null;
     return jwt_decode<User>(this.token);
   }
   constructor(private httpclient : HttpClient) {
-    this.token = sessionStorage.getItem(this.TOKEN_KEY);
+    // this.token = sessionStorage.getItem(this.TOKEN_KEY);
    }
    login(data : Login) : Observable<void> {
-     return this.httpclient.post<string>(this.url+'/Login',data).pipe(map(token => {sessionStorage.setItem(this.TOKEN_KEY,JSON.stringify(token));
-      this.token = token
+     return this.httpclient.post<string>(this.url+'/Login',data).pipe(map((token : any) => {
+       console.log(token)
+       sessionStorage.setItem('TOKEN',JSON.stringify(token))
+       sessionStorage.setItem("TOKEN_Id",token.Id);
+       sessionStorage.setItem("TOKEN_CustomerId",token.CustomerId);
+       sessionStorage.setItem("TOKEN_Email",token.Email);
+       this.token = token
     }));
    }
    logout(){

@@ -1,11 +1,20 @@
 <nb-layout >
      <nb-layout-header id="cardHeader" >
       <div id="header">
-        <nb-icon class="icon" icon="home" ></nb-icon>
+        <nb-icon class="icon" icon="home" routerLink="/" ></nb-icon>
         <div>
+        </div>
+        <div>
+          <button mat-button [matMenuTriggerFor]="menu" *ngIf="(authService.token && !authService.token.customerId) "> Déjà un compte client?</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Créer un compte client</button>
+            <button mat-menu-item routerLink="/customer/customerbinding">Lier son compte client</button>
+          </mat-menu>
           
           <button *ngIf="!authService.token" id="connection" nbButton  routerLink="/Login"><nb-icon id ="login"  icon="person"  ></nb-icon>Connection</button>
+            
         </div>
+        
         <div *ngIf="authService.token" >
           
           <nb-icon class="icon" icon="log-out" (click)="logout()"></nb-icon>

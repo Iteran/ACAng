@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { CustomerService } from 'src/app/core/services/customer.service';
+import { UserService } from 'src/app/core/services/user.service';
+
 
 @Component({
   templateUrl: './customerbinding.component.html',
@@ -10,7 +11,7 @@ import { CustomerService } from 'src/app/core/services/customer.service';
 export class CustomerbindingComponent implements OnInit {
 
   fg! : FormGroup
-  constructor(private customerService : CustomerService, private fb : FormBuilder,private authService : AuthService) { }
+  constructor(private userService : UserService, private fb : FormBuilder,private authService : AuthService) { }
 
   ngOnInit(): void {
     this.fg = this.fb.group({
@@ -19,7 +20,7 @@ export class CustomerbindingComponent implements OnInit {
   }
   Bind(){
     let token : any = sessionStorage.getItem("TOKEN")
-    this.customerService.Bind(this.fg.value.customerId,JSON.parse(token).id).subscribe()
+    this.userService.Bind(this.fg.value.customerId,JSON.parse(token).id).subscribe()
   }
 
 }

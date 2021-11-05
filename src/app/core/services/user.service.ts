@@ -8,9 +8,14 @@ import { UserRegister} from '../models/userRegister'
 })
 export class UserService {
   private readonly url : string = "https://localhost:44350/api/User";
+  
   constructor(private httpclient : HttpClient) { }
 
   register(user : UserRegister) : Observable<void>{
     return this.httpclient.post<any>(this.url,user)
+  }
+  Bind(customerId : number, userId : number) : Observable<void>{
+    console.log(customerId)
+    return this.httpclient.post<any>(this.url+"/"+customerId,userId)
   }
 }

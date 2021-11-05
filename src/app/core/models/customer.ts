@@ -6,5 +6,5 @@ export interface customer {
   address: string;
   businessName: string;
   phoneNumber: string;
-  userId?: number;
+  
 }

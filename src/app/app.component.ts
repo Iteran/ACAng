@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NbMenuItem } from '@nebular/theme';
 import { AuthService } from './core/services/auth.service';
+import { CustomerService } from './core/services/customer.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent {
   items : NbMenuItem[] = [
 
   ]
-  constructor(public authService : AuthService){
+  
+  constructor(public authService : AuthService,public customerService : CustomerService){
 
   }
   logout(){

@@ -21,6 +21,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CustomerbindingComponent } from './features/customer/customerbinding/customerbinding.component';
+import { CustomerprofileComponent } from './features/customer/customerprofile/customerprofile.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -30,7 +33,8 @@ import { CustomerbindingComponent } from './features/customer/customerbinding/cu
     LoginComponent,
     RegisterComponent,
     CustomerComponent,
-    CustomerbindingComponent
+    CustomerbindingComponent,
+    CustomerprofileComponent
     
     
   ],
@@ -60,7 +64,10 @@ import { CustomerbindingComponent } from './features/customer/customerbinding/cu
     BrowserAnimationsModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatMenuModule,
+    MatButtonModule
+    
     
     
     
