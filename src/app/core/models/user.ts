@@ -1,6 +1,7 @@
 export interface User{
-    id : string;
+    id : number;
     isAdmin : boolean;
     email : string;
+    token : string;
     customerId?: number;
 }

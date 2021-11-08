@@ -19,8 +19,8 @@ export class CustomerbindingComponent implements OnInit {
     })
   }
   Bind(){
-    let token : any = sessionStorage.getItem("TOKEN")
-    this.userService.Bind(this.fg.value.customerId,JSON.parse(token).id).subscribe()
+    
+    this.userService.Bind(this.fg.value.customerId).subscribe(() => this.userService.getCurrentUser())
   }
 
 }

@@ -24,6 +24,12 @@ import { CustomerbindingComponent } from './features/customer/customerbinding/cu
 import { CustomerprofileComponent } from './features/customer/customerprofile/customerprofile.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import { CreateCustomerComponent } from './features/customer/create-customer/create-customer.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { CustomerDashboardComponent } from './features/dashboard/customer-dashboard/customer-dashboard.component';
+import {MatTableModule} from '@angular/material/table';
+import {TableModule} from 'primeng/table';
+
 
 
 
@@ -34,7 +40,11 @@ import {MatButtonModule} from '@angular/material/button';
     RegisterComponent,
     CustomerComponent,
     CustomerbindingComponent,
-    CustomerprofileComponent
+    CustomerprofileComponent,
+    CreateCustomerComponent,
+    DashboardComponent,
+    CustomerDashboardComponent,
+    
     
     
   ],
@@ -66,7 +76,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule,
     MatFormFieldModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    TableModule
     
     
     

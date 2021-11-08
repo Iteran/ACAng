@@ -6,14 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  itemAdmin : any[] =[
+    {text : 'Dashboard', icon : null, path: '/dashboard'}
+  ]
   items: any[] = 
   [
-    {text : 'Dashboard', icon : null, path: '/dashboard'}
+    
   ]
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  getAdmin() : boolean{
+   
+    if (sessionStorage.getItem("TOKEN_IsAdmin") == "true") return true
+    else return false
+  }
 }

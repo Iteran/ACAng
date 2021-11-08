@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Login } from 'src/app/core/models/login';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { RegisterComponent } from './register/register.component';
-import { NbDialogService, NbToastrService } from '@nebular/theme';
+import { NbDialogService } from '@nebular/theme';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

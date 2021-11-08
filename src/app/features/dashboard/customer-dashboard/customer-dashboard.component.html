@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-content>
+        <p-table [value]="customers" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Numéro Client</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Adresse</th>
+                    <th>Nom de société</th>
+                    <th>Numéro de téléphone</th>
+                    <th>Options</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-customers>
+                <tr>
+                    <td>{{customers.id}}</td>
+                    <td (click)="OpenDialog(customers.id)" class="profil" >{{customers.name}}</td>
+                    <td>{{customers.firstName}}</td>
+                    <td>{{customers.address}}</td>
+                    <td>{{customers.businessName}}</td>
+                    <td>{{customers.phoneNumber}}</td>
+                    <td><button nbButton status="danger" (click)="Delete(customers.id)">x</button></td>
+                </tr>
+            </ng-template>
+        </p-table>
+          
+            
+    </mat-card-content>
+</mat-card>

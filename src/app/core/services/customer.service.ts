@@ -15,11 +15,21 @@ export class CustomerService {
   constructor(private httpclient : HttpClient) { 
     this.token = sessionStorage.getItem("TOKEN")
   }
-
+  selectedId : number | null = null
   
   GetById() : Observable<customer>{
-    
-    return this.httpclient.get<customer>(this.url+"/"+JSON.parse(this.token).customerId)
-
+    if (this.selectedId == null) this.selectedId = parseInt(sessionStorage.getItem("TOKEN_CustomerId")?? "")
+    return this.httpclient.get<customer>(this.url+"/"+this.selectedId)
   }
+  Create(customer : customer):Observable<number>{
+    return this.httpclient.post<number>(this.url,customer)
+  }
+  GetAll() : Observable<customer[]>{
+    return this.httpclient.get<customer[]>(this.url)
+  }
+  Delete(id : number) : Observable<boolean>{
+    return this.httpclient.delete<boolean>(this.url +"/"+ id)
+  }
+ 
+  
 }

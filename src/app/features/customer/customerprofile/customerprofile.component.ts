@@ -6,12 +6,13 @@ import { CustomerService } from 'src/app/core/services/customer.service';
   styleUrls: ['./customerprofile.component.scss']
 })
 export class CustomerprofileComponent implements OnInit {
-
+ 
   constructor(private customerService : CustomerService) { }
 
   ngOnInit(): void {
     
-    console.log(this.LoadData())
+    this.LoadData()
+    console.log(this.customerService.selectedId)
   }
 
   LoadData(){
