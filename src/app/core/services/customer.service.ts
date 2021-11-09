@@ -19,7 +19,9 @@ export class CustomerService {
   
   GetById() : Observable<customer>{
     if (this.selectedId == null) this.selectedId = parseInt(sessionStorage.getItem("TOKEN_CustomerId")?? "")
-    return this.httpclient.get<customer>(this.url+"/"+this.selectedId)
+    let c = this.httpclient.get<customer>(this.url+"/"+this.selectedId)
+    
+    return c
   }
   Create(customer : customer):Observable<number>{
     return this.httpclient.post<number>(this.url,customer)
@@ -30,6 +32,9 @@ export class CustomerService {
   Delete(id : number) : Observable<boolean>{
     return this.httpclient.delete<boolean>(this.url +"/"+ id)
   }
- 
+  Modify (body : customer) : Observable<customer>{
+    if (this.selectedId == null) this.selectedId = parseInt(sessionStorage.getItem("TOKEN_CustomerId")?? "")
+    return this.httpclient.put<customer>(this.url+"/"+this.selectedId,body)
+  }
   
 }

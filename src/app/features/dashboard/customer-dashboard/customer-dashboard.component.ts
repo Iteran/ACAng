@@ -14,7 +14,7 @@ export class CustomerDashboardComponent implements OnInit {
   
   ngOnInit(): void {
     this.LoadData()
-    console.log(this.customers)
+    
   }
   LoadData(){
     this.customerService.GetAll().subscribe(data => this.customers = data) 

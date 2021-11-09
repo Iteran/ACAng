@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-header class = ligne>
+        
+            <mat-card-title>Nos produits de base  </mat-card-title>
+        
+           <span><button nbButton  (click)="OpenDialogAdd()" ><nb-icon icon="plus"></nb-icon></button></span> 
+        
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            
+            <mat-list-item *ngFor="let item of baseProducts">
+              <nb-icon icon ="pricetags"></nb-icon>
+              <div class="title" mat-line (click)="OpenDialog(item.id)" > {{item.name}}</div>
+              <div mat-line> Quantité restante :  {{item.quantity}} </div>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

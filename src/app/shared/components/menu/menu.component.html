@@ -4,7 +4,8 @@
             <button nbButton hero status="warning" [routerLink]="item.path"><nb-icon *ngIf="item.icon" [icon]="item.icon"></nb-icon> {{item.text}}</button> </div>
         
     </div>
+    
     <div *ngFor="let item of items">
-        <button nbButton hero status="warning"><nb-icon *ngIf="item.icon" [icon]="item.icon"></nb-icon> {{item.text}}</button>
+        <button nbButton hero status="primary" [routerLink]="item.path"><nb-icon *ngIf="item.icon" [icon]="item.icon"></nb-icon> {{item.text}}</button>
     </div>
 </nav>

@@ -12,6 +12,11 @@
         color: #a25547;
         &:hover { color: #c9b9a5; }
     }
+    .invisible{
+        background-color: #a19382;
+        border-color:  #a19382;
+        border: none;
+    }
     .icon{
         cursor: pointer;
         size: 200px;

@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbButtonModule, NbCardModule, NbDialogModule, NbIconModule, NbInputModule, NbLayoutModule, NbSidebarModule, NbThemeModule, NbToastrModule } from '@nebular/theme';
-
+import {MatListModule} from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
@@ -29,6 +29,11 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { CustomerDashboardComponent } from './features/dashboard/customer-dashboard/customer-dashboard.component';
 import {MatTableModule} from '@angular/material/table';
 import {TableModule} from 'primeng/table';
+import { CustomerModifyComponent } from './features/customer/customer-modify/customer-modify.component';
+import { BaseProductComponent } from './features/base-product/base-product.component';
+import { BaseProductDetailsComponent } from './features/base-product/base-product-details/base-product-details.component';
+import { AddBaseProductComponent } from './features/base-product/add-base-product/add-base-product.component';
+
 
 
 
@@ -44,6 +49,10 @@ import {TableModule} from 'primeng/table';
     CreateCustomerComponent,
     DashboardComponent,
     CustomerDashboardComponent,
+    CustomerModifyComponent,
+    BaseProductComponent,
+    BaseProductDetailsComponent,
+    AddBaseProductComponent,
     
     
     
@@ -78,7 +87,8 @@ import {TableModule} from 'primeng/table';
     MatMenuModule,
     MatButtonModule,
     MatTableModule,
-    TableModule
+    TableModule,
+    MatListModule
     
     
     

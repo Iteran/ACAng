@@ -1,1 +1,46 @@
-<p>customerprofile works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Informations de profil</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Nom </mat-label>
+                <input matInput disabled >{{selectedCustomer?.name}}
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Prénom </mat-label>
+                <input matInput disabled >{{selectedCustomer?.firstName}}
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Email </mat-label>
+                <input matInput disabled >{{selectedCustomer?.email}}
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Adresse </mat-label>
+                <input matInput disabled >{{selectedCustomer?.address}}
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Nom de société </mat-label>
+                <input matInput disabled >{{selectedCustomer?.businessName}}
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Numéro de téléphone </mat-label>
+                <input matInput disabled >{{selectedCustomer?.phoneNumber}}
+            </mat-form-field>
+        </div>
+        <div>
+            <button (click)="OpenDialog(selectedCustomer.id)" mat-raised-button color="primary">Modifier</button>
+        </div>
+    </mat-card-content>
+</mat-card>

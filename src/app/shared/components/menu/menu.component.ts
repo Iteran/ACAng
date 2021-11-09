@@ -8,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
   itemAdmin : any[] =[
     {text : 'Dashboard', icon : null, path: '/dashboard'}
+    
+
   ]
   items: any[] = 
   [
-    
+    {text : 'Produits', icon : null, path: '/baseProduct'}
   ]
 
   constructor() { }
