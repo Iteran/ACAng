@@ -1,0 +1,17 @@
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Combien de quantité de {{selectedBaseProduct?.name}} à supprimer?</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Quantité à supprimer</mat-label>
+                    <input matInput id="Quantity" type="number" [(ngModel)]="Quantity" >
+                </mat-form-field>
+            </div>
+            <button (click)="Submit()" nbButton class="button">Valider</button>
+        
+    </mat-card-content>
+</mat-card>

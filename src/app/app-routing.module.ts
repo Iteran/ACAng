@@ -23,11 +23,11 @@ const routes: Routes = [
 
   ]},
   {path : "dashboard",component: DashboardComponent, canActivate : [IsAdminGuardGuard], children :[]},
-  {path : "customerDashboard",component: CustomerDashboardComponent},
+  {path : "customerDashboard",component: CustomerDashboardComponent, canActivate : [IsAdminGuardGuard]} ,
   {path : "customerProfile",component: CustomerprofileComponent},
   {path : "baseProduct",component: BaseProductComponent, children:[
     {path :"baseProductDetails" , component : BaseProductDetailsComponent},
-    {path :"addBaseProduct" , component : AddBaseProductComponent}
+    {path :"addBaseProduct" , component : AddBaseProductComponent, canActivate : [IsAdminGuardGuard]}
   ]}
 
   

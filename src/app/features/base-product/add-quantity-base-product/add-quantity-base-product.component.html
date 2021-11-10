@@ -1,0 +1,17 @@
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Combien de quantité de {{selectedBaseProduct?.name}}  à ajouter?</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Quantité à ajouter</mat-label>
+                    <input matInput type="number" id ="Quantity" [(ngModel)]="Quantity">
+                </mat-form-field>
+            </div>
+            <button nbButton (click)="Submit()" class="button">Valider</button>
+        
+    </mat-card-content>
+</mat-card>

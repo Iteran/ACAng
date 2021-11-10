@@ -16,17 +16,21 @@ export class AppComponent implements OnInit {
   items : NbMenuItem[] = [
 
   ]
-
+  isAdmin! : boolean
+  token! : string
   currentUser? : User
   
-  constructor(public authService : AuthService,public customerService : CustomerService,private dialogService : NbDialogService){
+  constructor(public authService : AuthService,
+    public customerService : CustomerService,
+    private dialogService : NbDialogService){
+    
 
   }
   getToken(){
-    return sessionStorage.getItem("TOKEN")
+    return this.authService.myUser?.email
   }
   getCustomerId(){
-    return sessionStorage.getItem("TOKEN_CustomerId")
+    return this.authService.myUser?.customerId
   }
   ngOnInit() {
     this.authService.userSub.subscribe((u : User) => this.currentUser = (u?u:undefined))

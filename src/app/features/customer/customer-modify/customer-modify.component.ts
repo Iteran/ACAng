@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NbDialogRef } from '@nebular/theme';
 import { customer } from 'src/app/core/models/customer';
 import { CustomerService } from 'src/app/core/services/customer.service';
 
@@ -10,7 +11,10 @@ import { CustomerService } from 'src/app/core/services/customer.service';
 export class CustomerModifyComponent implements OnInit {
   @Input() selectedCustomer! : customer
   fg : FormGroup = new FormGroup({})
-  constructor(private customerService : CustomerService, private fb : FormBuilder) { }
+  constructor(
+    private customerService : CustomerService,
+    private fb : FormBuilder,
+    private dialogRef : NbDialogRef<CustomerModifyComponent>) { }
 
   ngOnInit(): void {
     this.fg = this.fb.group({
@@ -36,7 +40,7 @@ export class CustomerModifyComponent implements OnInit {
     
   }
   Update(){
-    this.customerService.Modify(this.fg.value).subscribe(()=>this.LoadData())
+    this.customerService.Modify(this.fg.value).subscribe(() => this.dialogRef.close())
   }
   LoadData(){
     

@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Login } from '../models/login';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,9 @@ export class AuthService {
   private readonly TOKEN_KEY = 'TOKEN';
   private readonly url : string = "https://localhost:44350/api/Auth";
   public token!: any
-
+  isAdmin! : boolean
   _currentUser? : User
-
+  myUser? : User
   set currentUser(value : User ) {
     this._currentUser = value
     this.emitUser()
@@ -32,25 +33,24 @@ export class AuthService {
     if(!this.token) return null;
     return jwt_decode<User>(this.token);
   }
-  constructor(private httpclient : HttpClient) {
+  constructor(private httpclient : HttpClient, private router : Router) {
     // this.token = sessionStorage.getItem(this.TOKEN_KEY);
    }
    login(data : Login) : Observable<void> {
      return this.httpclient.post<User>(this.url+'/Login',data).pipe(map((user : User) => {
        
-       sessionStorage.setItem('TOKEN',JSON.stringify(user));
-       sessionStorage.setItem("TOKEN_Id",user.id.toString());
-       sessionStorage.setItem("TOKEN_CustomerId",user.customerId ? user.customerId.toString()  : '');
-       sessionStorage.setItem("TOKEN_Email",user.email);
-       sessionStorage.setItem("TOKEN_IsAdmin",user.isAdmin.toString())
+       
+       console.log(user)
+       this.isAdmin = user.isAdmin
+       
+       this.myUser = user
        this.token = user.token
        this.currentUser = user
     }));
    }
    logout(){
-     sessionStorage.clear()
-     sessionStorage.setItem(this.TOKEN_KEY,'');
-     
+     this.myUser = undefined
      this._currentUser = undefined;
+     this.router.navigateByUrl("/")
    }
 }

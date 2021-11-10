@@ -9,7 +9,7 @@ import { BaseProduct } from '../models/baseProduct';
 export class BaseProductService {
   private readonly url : string = "https://localhost:44350/api/baseProduct";
   constructor(private httpclient : HttpClient) { }
-  selectedProductId! : number
+  selectedProductId : number = 1
   AddBaseProduct(product : BaseProduct) : Observable<void>{
     return this.httpclient.post<void>(this.url,product)
   }
@@ -23,10 +23,11 @@ export class BaseProductService {
     return this.httpclient.delete<void>(this.url+"/"+id)
   }
   AddQuantity(id : number, quantity : number) : Observable<void>{
-    return this.httpclient.patch<void>(this.url + "/Add"+id,quantity)
+    return this.httpclient.patch<void>(this.url + "/Add/"+id,quantity)
   }
   DeleteQuantity(id : number, quantity : number) : Observable<void>{
-    return this.httpclient.patch<void>(this.url+"/Delete"+id,quantity)
+    console.log(quantity)
+    return this.httpclient.patch<void>(this.url+"/Delete/"+id,quantity)
   }
   UpdateProduct(id : number, body : BaseProduct) : Observable<BaseProduct>{
     return this.httpclient.put<BaseProduct>(this.url+"/"+id,body)

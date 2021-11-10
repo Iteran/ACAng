@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,18 +12,19 @@ export class MenuComponent implements OnInit {
     
 
   ]
+  isAdmin! : boolean
   items: any[] = 
   [
     {text : 'Produits', icon : null, path: '/baseProduct'}
   ]
 
-  constructor() { }
+  constructor(private authService : AuthService) { }
 
   ngOnInit(): void {
   }
   getAdmin() : boolean{
    
-    if (sessionStorage.getItem("TOKEN_IsAdmin") == "true") return true
+    if (this.authService.myUser?.isAdmin) return true
     else return false
   }
 }

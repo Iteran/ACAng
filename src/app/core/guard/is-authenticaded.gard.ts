@@ -18,7 +18,7 @@ export class IsAuthenticatedGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(sessionStorage.getItem("TOKEN")=="") 
+    if(this.authService.myUser == undefined) 
         
       this.router.navigateByUrl('/Login');
       

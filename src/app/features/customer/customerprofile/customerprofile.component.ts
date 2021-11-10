@@ -29,7 +29,7 @@ export class CustomerprofileComponent implements OnInit {
     let x = sessionStorage.getItem("TOKEN_IsAdmin")
   
     if (x == "true") this.customerService.selectedId = id
-    this.dialogservice.open(CustomerModifyComponent, {context :{selectedCustomer : this.selectedCustomer}})
-    
+    let ref = this.dialogservice.open(CustomerModifyComponent, {context :{selectedCustomer : this.selectedCustomer}})
+    ref.onClose.subscribe(() => this.LoadData())
   }
 }

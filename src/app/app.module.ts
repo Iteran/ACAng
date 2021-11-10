@@ -33,6 +33,9 @@ import { CustomerModifyComponent } from './features/customer/customer-modify/cus
 import { BaseProductComponent } from './features/base-product/base-product.component';
 import { BaseProductDetailsComponent } from './features/base-product/base-product-details/base-product-details.component';
 import { AddBaseProductComponent } from './features/base-product/add-base-product/add-base-product.component';
+import { BaseProductModifyComponent } from './features/base-product/base-product-modify/base-product-modify.component';
+import { AddQuantityBaseProductComponent } from './features/base-product/add-quantity-base-product/add-quantity-base-product.component';
+import { DeleteQuantityBaseProductComponent } from './features/base-product/delete-quantity-base-product/delete-quantity-base-product.component';
 
 
 
@@ -53,6 +56,9 @@ import { AddBaseProductComponent } from './features/base-product/add-base-produc
     BaseProductComponent,
     BaseProductDetailsComponent,
     AddBaseProductComponent,
+    BaseProductModifyComponent,
+    AddQuantityBaseProductComponent,
+    DeleteQuantityBaseProductComponent,
     
     
     

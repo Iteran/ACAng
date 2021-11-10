@@ -3,14 +3,21 @@
         
             <mat-card-title >Nos produits de base  </mat-card-title>
         
-           <span><button nbButton  (click)="OpenDialogAdd()" ><nb-icon icon="plus"></nb-icon></button></span> 
+           <span *ngIf="isAdmin"><button nbButton status="primary" (click)="OpenDialogAdd()" ><nb-icon icon="plus"></nb-icon></button></span> 
         
     </mat-card-header>
     <mat-card-content>
         <mat-list>
             
             <mat-list-item *ngFor="let item of baseProducts">
-              <nb-icon icon ="pricetags"></nb-icon>
+              <nb-icon *ngIf="!isAdmin" icon ="pricetags"></nb-icon>
+              <button nbButton status="success" (click)="OpenDialogAddQuantity(item.id??0)"  *ngIf="isAdmin"  >  <nb-icon icon="plus"></nb-icon> </button>
+              <button nbButton status="warning"  (click)="OpenDialogMinus(item.id??0)"  *ngIf="isAdmin"  > <nb-icon icon="minus"></nb-icon> </button>
+              <button nbButton (click)="OpenDialogModify(item.id?? 0)"  *ngIf="isAdmin"  > <nb-icon icon="edit"></nb-icon> </button>
+              <button nbButton status="danger" (click)="Delete(item.id?? 0)"  *ngIf="isAdmin"  > x </button>
+
+              
+
               <div class="title" mat-line (click)="OpenDialog(item.id ?? 0)" > {{item.name}}</div>
               <div mat-line> Quantité restante :  {{item.quantity}} </div>
             </mat-list-item>
