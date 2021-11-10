@@ -8,8 +8,8 @@
           <button *ngIf="getCustomerId()" (click)="resetId()"routerLink="/customerProfile" class ="invisible"><nb-icon   icon ="person" class="icon" >test </nb-icon></button>
           <button mat-button [matMenuTriggerFor]="menu" *ngIf="(getToken() != '' && !getCustomerId()) "> Déjà un compte client?</button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/customer/create-customer">Créer un compte client</button>
-            <button mat-menu-item routerLink="/customer/customerbinding">Lier son compte client</button>
+            <button mat-menu-item (click)="OpenAddCustomer()">Créer un compte client</button>
+            <button mat-menu-item (click)="OpenBindCustomer()">Lier son compte client</button>
           </mat-menu>
           <button *ngIf="getToken() == ''" id="connection" nbButton  routerLink="/Login"><nb-icon id ="login"  icon="log-in"  ></nb-icon>Connection</button>
           <nb-icon *ngIf="getToken() != ''"  class="icon" icon="log-out" (click)="logout()"></nb-icon>

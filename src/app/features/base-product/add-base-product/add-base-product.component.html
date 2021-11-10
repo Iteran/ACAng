@@ -3,7 +3,7 @@
         <mat-card-title>Création compte client</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <form [formGroup]="fg" >
+        <form [formGroup]="fg" (ngSubmit)="OnSubmit()">
             <div>
                 <mat-form-field appearance="fill">
                     <mat-label>Nom</mat-label>
@@ -27,7 +27,7 @@
             
                 <label>Photo</label>
                 <div></div>
-                <input nbInput type="file" accept="image/*" formControlName ="picture">
+                <input nbInput type="file" (change)="Getfile($event)" accept="image/*" formControlName ="picture">
         
         </div>
         

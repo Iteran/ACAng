@@ -26,8 +26,10 @@ export class BaseProductComponent implements OnInit {
     this.baseProductService.selectedProductId = id
     this.dialogService.open(BaseProductDetailsComponent, {context :{selectedProduct : this.selectedBaseProduct}})
     
+    
   }
   OpenDialogAdd(){
-    this.dialogService.open(AddBaseProductComponent)
+    let ref = this.dialogService.open(AddBaseProductComponent)
+    ref.onClose.subscribe(() => this.LoadData())
   }
 }

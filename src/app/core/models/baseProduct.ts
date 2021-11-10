@@ -1,7 +1,7 @@
 export interface BaseProduct{
-    id : number,
+    id : number | null,
     name : string,
-    picture : string,
+    picture : string | null,
     description : string,
     quantity : number
 }

@@ -5,3 +5,9 @@
         color: #a25547;
         &:hover { color: #c9b9a5; }
 }
+.ligne{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 40px;
+}

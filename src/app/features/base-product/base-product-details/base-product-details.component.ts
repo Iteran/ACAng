@@ -9,7 +9,7 @@ import { BaseProductService } from 'src/app/core/services/base-product.service';
 export class BaseProductDetailsComponent implements OnInit {
   selectedProduct! : BaseProduct
   constructor(private baseProductService : BaseProductService) { }
-
+  defaultPicture : string = "https://localhost:44350/upfile/defaultImg.jpg"
   ngOnInit(): void {
     this.LoadData()
   }

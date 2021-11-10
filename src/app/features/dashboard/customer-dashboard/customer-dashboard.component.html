@@ -1,4 +1,8 @@
 <mat-card>
+    <mat-card-header  class="ligne">
+        <mat-card-title>Liste des clients  </mat-card-title>
+        <span><button nbButton  (click)="OpenDialogAdd()" ><nb-icon icon="plus"></nb-icon></button></span>
+    </mat-card-header>
     <mat-card-content>
         <p-table [value]="customers" responsiveLayout="scroll">
             <ng-template pTemplate="header">

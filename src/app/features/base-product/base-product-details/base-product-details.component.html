@@ -2,6 +2,7 @@
     <mat-card-header>
         <mat-card-title>{{selectedProduct?.name}}</mat-card-title>
     </mat-card-header>
+    <img mat-card-image  class ="picture" src="{{selectedProduct?.picture ?? defaultPicture }}"   >
     <mat-card-content>
         <mat-label>Description</mat-label>
         <p> {{selectedProduct?.description}}</p>
