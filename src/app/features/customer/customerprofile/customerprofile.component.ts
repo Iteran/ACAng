@@ -3,6 +3,7 @@ import { CustomerService } from 'src/app/core/services/customer.service';
 import { customer } from 'src/app/core/models/customer'
 import { NbDialogService } from '@nebular/theme';
 import { CustomerModifyComponent } from '../customer-modify/customer-modify.component';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   templateUrl: './customerprofile.component.html',
@@ -11,7 +12,9 @@ import { CustomerModifyComponent } from '../customer-modify/customer-modify.comp
 export class CustomerprofileComponent implements OnInit {
  
   selectedCustomer! : customer
-  constructor(private customerService : CustomerService, private dialogservice : NbDialogService) { }
+  constructor(private customerService : CustomerService,
+    private dialogservice : NbDialogService,
+    private authService : AuthService) { }
 
   ngOnInit(): void {
     
@@ -20,15 +23,14 @@ export class CustomerprofileComponent implements OnInit {
   }
 
   LoadData(){
-    let x = sessionStorage.getItem("TOKEN_IsAdmin")
-    console.log(x)
+    
     
     this.customerService.GetById().subscribe(data => this.selectedCustomer = data)
   }
   OpenDialog(id : number){
-    let x = sessionStorage.getItem("TOKEN_IsAdmin")
+    let x = this.authService.myUser?.isAdmin
   
-    if (x == "true") this.customerService.selectedId = id
+    if (x) this.customerService.selectedId = id
     let ref = this.dialogservice.open(CustomerModifyComponent, {context :{selectedCustomer : this.selectedCustomer}})
     ref.onClose.subscribe(() => this.LoadData())
   }

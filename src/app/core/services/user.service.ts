@@ -19,14 +19,14 @@ export class UserService {
   Bind(customerId : number) : Observable<void>{
     console.log(customerId)
     
-    return this.httpclient.post<any>(this.url+"/"+customerId,parseInt(sessionStorage.getItem("TOKEN_Id") ?? ""))
+    return this.httpclient.post<any>(this.url+"/"+customerId,this.authService.myUser?.id)
   }
 
   getCurrentUser() {
-    this.httpclient.get<User>(this.url+"/"+sessionStorage.getItem('TOKEN_Id')).subscribe((u :User) => 
+    this.httpclient.get<User>(this.url+"/"+this.authService.myUser?.id).subscribe((u :User) => 
     {
-      this.authService.currentUser = u
-      sessionStorage.setItem("TOKEN_CustomerId",u.customerId ? u.customerId.toString()  : '');
+      this.authService.myUser = u
+      
     }
      , (error) => console.log(error))
   }

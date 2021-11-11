@@ -26,7 +26,9 @@ export class CustomerDashboardComponent implements OnInit {
   OpenDialog(id : number){
    
     this.customerService.selectedId = id
-    this.dialogservice.open(CustomerprofileComponent)
+    let ref = this.dialogservice.open(CustomerprofileComponent)
+    ref.onClose.subscribe(() => this.LoadData())
+   
   }
   OpenDialogAdd(){
     sessionStorage.setItem("AdminTouch","true")

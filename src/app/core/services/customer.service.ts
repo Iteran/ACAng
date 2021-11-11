@@ -5,6 +5,7 @@ import { NbUserComponent } from '@nebular/theme';
 import { Observable } from 'rxjs';
 import { bindingCustomer} from '../models/bindingCustomer'
 import { customer } from '../models/customer';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,13 @@ import { customer } from '../models/customer';
 export class CustomerService {
   private readonly url : string = "https://localhost:44350/api/Customer";
   token : any
-  constructor(private httpclient : HttpClient) { 
+  constructor(private httpclient : HttpClient, private authservice : AuthService) { 
     this.token = sessionStorage.getItem("TOKEN")
   }
   selectedId : number | null = null
   
   GetById() : Observable<customer>{
-    if (this.selectedId == null) this.selectedId = parseInt(sessionStorage.getItem("TOKEN_CustomerId")?? "")
+    if (this.selectedId == null) this.selectedId = this.authservice.myUser?.customerId?? 0
     let c = this.httpclient.get<customer>(this.url+"/"+this.selectedId)
     
     return c
@@ -33,7 +34,7 @@ export class CustomerService {
     return this.httpclient.delete<boolean>(this.url +"/"+ id)
   }
   Modify (body : customer) : Observable<customer>{
-    if (this.selectedId == null) this.selectedId = parseInt(sessionStorage.getItem("TOKEN_CustomerId")?? "")
+    if (this.selectedId == null) this.selectedId = this.selectedId = this.authservice.myUser?.customerId?? 0
     return this.httpclient.put<customer>(this.url+"/"+this.selectedId,body)
   }
   
