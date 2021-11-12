@@ -36,6 +36,7 @@ import { AddBaseProductComponent } from './features/base-product/add-base-produc
 import { BaseProductModifyComponent } from './features/base-product/base-product-modify/base-product-modify.component';
 import { AddQuantityBaseProductComponent } from './features/base-product/add-quantity-base-product/add-quantity-base-product.component';
 import { DeleteQuantityBaseProductComponent } from './features/base-product/delete-quantity-base-product/delete-quantity-base-product.component';
+import { AddPriceProductComponent } from './features/base-product/add-price-product/add-price-product.component';
 
 
 
@@ -59,6 +60,7 @@ import { DeleteQuantityBaseProductComponent } from './features/base-product/dele
     BaseProductModifyComponent,
     AddQuantityBaseProductComponent,
     DeleteQuantityBaseProductComponent,
+    AddPriceProductComponent,
     
     
     

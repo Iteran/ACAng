@@ -9,17 +9,18 @@
     <mat-card-content>
         <mat-list>
             
-            <mat-list-item *ngFor="let item of baseProducts">
-              <nb-icon *ngIf="!isAdmin" icon ="pricetags"></nb-icon>
-              <button nbButton status="success" (click)="OpenDialogAddQuantity(item.id??0)"  *ngIf="isAdmin"  >  <nb-icon icon="plus"></nb-icon> </button>
-              <button nbButton status="warning"  (click)="OpenDialogMinus(item.id??0)"  *ngIf="isAdmin"  > <nb-icon icon="minus"></nb-icon> </button>
-              <button nbButton (click)="OpenDialogModify(item.id?? 0)"  *ngIf="isAdmin"  > <nb-icon icon="edit"></nb-icon> </button>
-              <button nbButton status="danger" (click)="Delete(item.id?? 0)"  *ngIf="isAdmin"  > x </button>
+            <mat-list-item *ngFor="let item of completeList">
+              <p *ngIf="!isAdmin" style="color: #a25547;" ><nb-icon  icon ="pricetags" style="color: cadetblue;"></nb-icon> {{item.price.priceProduct != 0  ? "€"+item.price.priceProduct+"/m" :""}}  </p>
+              <button nbButton status="success" (click)="OpenDialogAddQuantity(item.product.id??0)"  *ngIf="isAdmin"  >  <nb-icon icon="plus"></nb-icon> </button>
+              <button nbButton status="warning"  (click)="OpenDialogMinus(item.product.id??0)"  *ngIf="isAdmin"  > <nb-icon icon="minus"></nb-icon> </button>
+              <button nbButton status="primary" (click)="OpenPriceDialog(item.product.id??0)" *ngIf="isAdmin"><nb-icon   icon ="edit"></nb-icon>{{item.price.priceProduct + "€"}}</button>
+              <button nbButton (click)="OpenDialogModify(item.product.id?? 0)"  *ngIf="isAdmin"  > <nb-icon icon="edit"></nb-icon> </button>
+              <button nbButton status="danger" (click)="Delete(item.product.id?? 0)"  *ngIf="isAdmin"  > x </button>
 
               
 
-              <div class="title" mat-line (click)="OpenDialog(item.id ?? 0)" > {{item.name}}</div>
-              <div mat-line> Quantité restante :  {{item.quantity}} </div>
+              <div class="title" mat-line (click)="OpenDialog(item.product.id ?? 0)" > {{item.product.name}}</div>
+              <div mat-line> Quantité restante :  {{item.product.quantity}} </div>
             </mat-list-item>
         </mat-list>
     </mat-card-content>
